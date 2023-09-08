@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="authoring-tool" content="Adobe_Animate_CC">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Multitasking-Capability</title>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="Multitasking-Capability.js?1693356596917"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/animatecc.js"></script>
+    <script src="./js/window.js"></script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="app">
+
+    <!--  Logo  -->
+    <div class="logo">
+        <img src="./assets/fttw-logo.png" alt="fttw-logo">
+    </div>
+
+    <!--  instructions  -->
+    <div class="main-info">
+        <div class="instructions">
+            <h1>Instructions:</h1>
+            <p>Determine if the direction of the triangle is to the left or right in the given time and decide if the math equation is correct or incorrect while checking for duplicate numbers in the sequence.</p>
+            <br/>
+            <p>It is advised to do this test in full screen mode.</p>
+            <p>Press the full screen icon on the lower right end side of this screen to enter full screen mode:</p>
+        </div>
+
+        <div class="screen-enlarge">
+            <img src="./assets/screen-enlarge.png" alt="screen-enlarge">
+        </div>
+
+        <button class="btn start">Start Test</button>
+    </div>
+
+    <!--  game  -->
+    <div class="game-info">
+        <div class="time-bar">
+            <h4 class="time"></h4>
+            <div class="time-box">
+                <div class="timer-bar"></div>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="game-left">
+                <div class="game-1">
+                    <div class="game-1-images">
+                        <div id="symbol-1" class="symbol"></div>
+                        <div id="symbol-2" class="symbol"></div>
+                        <div id="symbol-3" class="symbol"></div>
+                        <div id="symbol-4" class="symbol"></div>
+                        <div id="symbol-5" class="symbol"></div>
+                        <div id="symbol-6" class="symbol"></div>
+                        <div id="symbol-7" class="symbol"></div>
+                    </div>
+                    <div class="game-1-time-bar">
+                        <div class="game-1-time-box">
+                            <div class="game-1-timer-bar"></div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button id="arrow-left" class="button arrow">◄</button>
+                        <button id="arrow-right" class="button arrow">►</button>
+                    </div>
+
+                    <div id="game-1-check-true" class="check bg-green">
+                        <span>✔</span>
+                    </div>
+
+                    <div id="game-1-check-fail" class="check bg-red">
+                        <span>✘</span>
+                    </div>
+                </div>
+            </div>
+            <div class="game-right">
+                <div class="game-2">
+                    <div id="game-2-number" class="game-number"></div>
+                    <div id="game-2-buttons" class="buttons">
+                        <button id="correct" class="button">CORRECT</button>
+                        <button id="wrong" class="button">WRONG</button>
+                    </div>
+
+                    <div id="game-2-check-true" class="check bg-green">
+                        <span>✔</span>
+                    </div>
+
+                    <div id="game-2-check-fail" class="check bg-red">
+                        <span>✘</span>
+                    </div>
+                </div>
+                <div class="game-3">
+                    <div id="game-3-number" class="game-number"></div>
+                    <div id="game-3-buttons" class="buttons">
+                        <button id="duplicate" class="button">DUPLICATE</button>
+                        <button id="no-duplicate" class="button">NO DUPLICATE</button>
+                    </div>
+
+                    <div id="game-3-check-true" class="check bg-green">
+                        <span>✔</span>
+                    </div>
+
+                    <div id="game-3-check-fail" class="check bg-red">
+                        <span>✘</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  result  -->
+    <div class="result-info">
+        <div class="result-content">
+            <h1>Correct Triangle Directions:</h1>
+            <span id="triangle"></span>
+        </div>
+        <div class="result-content">
+            <h1>Correct Math Questions:</h1>
+            <span id="math"></span>
+        </div>
+        <div class="result-content">
+            <h1>Correct Duplicate Questions:</h1>
+            <span id="duplicated"></span>
+        </div>
+        <div class="result-content">
+            <h1>Performance:</h1>
+            <span id="performance"></span>
+        </div>
+        <button class="btn restart">Restart</button>
+    </div>
+
+    <div id="animation_container" style="background-color:rgba(214, 214, 214, 1.00); width:960px; height:600px">
+        <canvas id="canvas" width="960" height="600" style="position: absolute; display: block; background-color:rgba(214, 214, 214, 1.00);"></canvas>
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:960px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+        </div>
+    </div>
+</div>
+
+<script src="./js/index.js"></script>
+</body>
+</html>
