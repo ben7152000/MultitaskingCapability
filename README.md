@@ -1,7 +1,6 @@
 # 飛行遊戲-多功能力處理
 
 ## 參數:
-### symbols: '▲', '●', '★', '✚', '♦'
 ### gameTime: 5分鐘
 ### game1Time: 10秒鐘
 ### delayEqualTime: 2秒鐘
