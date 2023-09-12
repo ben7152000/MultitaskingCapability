@@ -28,6 +28,7 @@ const POLYGON9 = 'polygon-9'
 const POLYGON10 = 'polygon-10'
 const POLYGON11 = 'polygon-11'
 const POLYGON12 = 'polygon-12'
+const POLYGON13 = 'polygon-13'
 const STAR1 = 'star-1'
 const STAR2 = 'star-2'
 const SQUARE = 'square'
@@ -88,7 +89,7 @@ const performance = document.querySelector('#performance')
 /**
  * 變數
  */
-const symbols = [DIAMOND, TRIANGLE, CROSS, STAR, CIRCLE, CIRCLE1, CIRCLE2, CIRCLE3, DIAMOND1, POLYGON1, POLYGON2, POLYGON3, POLYGON4, POLYGON5, POLYGON6, POLYGON7, POLYGON8, POLYGON9, POLYGON10, POLYGON11, POLYGON12, STAR1, STAR2, SQUARE ,SEMICIRCLE]
+const symbols = [DIAMOND, TRIANGLE, CROSS, STAR, CIRCLE, CIRCLE1, CIRCLE2, CIRCLE3, DIAMOND1, POLYGON1, POLYGON2, POLYGON3, POLYGON4, POLYGON5, POLYGON6, POLYGON7, POLYGON8, POLYGON9, POLYGON10, POLYGON11, POLYGON12, POLYGON13, STAR1, STAR2, SQUARE ,SEMICIRCLE]
 const arrowSymbols = [LEFT, RIGHT]
 const game2Numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
 let game1Correct = 0
