@@ -211,6 +211,20 @@ function randomSymbol(array) {
 }
 
 /**
+ * 隱藏圖片
+ */
+function hiddenSymbols(object) {
+  object.style.visibility = HIDDEN
+}
+
+/**
+ * 顯示圖片
+ */
+function visibleSymbols(object) {
+  object.style.visibility = VISIBLE
+}
+
+/**
  *  Game 1
  */
 function game1StartCountdown(duration) {
@@ -225,21 +239,20 @@ function game1StartCountdown(duration) {
 
     if (timer < 0) {
       clearInterval(randomInterval)
-      game1CheckFail.style.display = FLEX
+      visibleSymbols(game1CheckFail)
       game1Wrong++
       setTimeout(() => {
         game1TimerBar.style.transition = 'height 0s linear'
-        game1CheckTrue.style.display = NONE
-        game1CheckFail.style.display = NONE
+        hiddenSymbols(game1CheckTrue)
+        hiddenSymbols(game1CheckFail)
         game1Result = ''
         game1TimerBar.style.height = '0'
-        game1StartCountdown(game1Time)
+        game1RandomSymbols()
       }, delayCheckTime * 1000)
 
       setTimeout(() => {
         game1TimerBar.style.transition = 'height 1s linear'
       }, delayCheckTime * 1.02 * 1000)
-
     } else {
       timer--
     }
@@ -251,19 +264,19 @@ function game1StartCountdown(duration) {
 }
 
 function arrowLeftClickHandler() {
-  if (game1CheckTrue.style.display === FLEX || game1CheckFail.style.display === FLEX) return
+  if (game1CheckTrue.style.visibility === VISIBLE || game1CheckFail.style.visibility === VISIBLE) return
   if (game1Result === LEFT) {
-    game1CheckTrue.style.display = FLEX
+    visibleSymbols(game1CheckTrue)
     game1Correct++
   } else {
-    game1CheckFail.style.display = FLEX
+    visibleSymbols(game1CheckFail)
     game1Wrong++
   }
   clearInterval(randomInterval)
   setTimeout(() => {
     game1TimerBar.style.transition = 'height 0s linear'
-    game1CheckTrue.style.display = NONE
-    game1CheckFail.style.display = NONE
+    hiddenSymbols(game1CheckTrue)
+    hiddenSymbols(game1CheckFail)
     game1RandomSymbols()
   }, delayCheckTime * 1000)
 
@@ -273,19 +286,19 @@ function arrowLeftClickHandler() {
 }
 
 function arrowRightClickHandler() {
-  if (game1CheckTrue.style.display === FLEX || game1CheckFail.style.display === FLEX) return
+  if (game1CheckTrue.style.visibility === VISIBLE || game1CheckFail.style.visibility === VISIBLE) return
   if (game1Result === RIGHT) {
-    game1CheckTrue.style.display = FLEX
+    visibleSymbols(game1CheckTrue)
     game1Correct++
   } else {
-    game1CheckFail.style.display = FLEX
+    visibleSymbols(game1CheckFail)
     game1Wrong++
   }
   clearInterval(randomInterval)
   setTimeout(() => {
     game1TimerBar.style.transition = 'height 0s linear'
-    game1CheckTrue.style.display = NONE
-    game1CheckFail.style.display = NONE
+    hiddenSymbols(game1CheckTrue)
+    hiddenSymbols(game1CheckFail)
     game1RandomSymbols()
   }, delayCheckTime * 1000)
 
@@ -341,36 +354,36 @@ function game1RandomSymbols() {
  */
 function correctClickHandler() {
   if (game2Result === game2TestResult) {
-    game2CheckTrue.style.display = FLEX
-    game2Buttons.style.visibility = HIDDEN
+    visibleSymbols(game2CheckTrue)
+    hiddenSymbols(game2Buttons)
     game2Correct++
   } else {
-    game2CheckFail.style.display = FLEX
-    game2Buttons.style.visibility = HIDDEN
+    visibleSymbols(game2CheckFail)
+    hiddenSymbols(game2Buttons)
     game2Wrong++
   }
   setTimeout(() => {
-    game2CheckTrue.style.display = NONE
-    game2CheckFail.style.display = NONE
-    game2Buttons.style.visibility = VISIBLE
+    hiddenSymbols(game2CheckTrue)
+    hiddenSymbols(game2CheckFail)
+    visibleSymbols(game2Buttons)
     game2RandomNumber()
   }, delayCheckTime * 1000)
 }
 
 function wrongClickHandler() {
   if (game2Result !== game2TestResult) {
-    game2CheckTrue.style.display = FLEX
-    game2Buttons.style.visibility = HIDDEN
+    visibleSymbols(game2CheckTrue)
+    hiddenSymbols(game2Buttons)
     game2Correct++
   } else {
-    game2CheckFail.style.display = FLEX
-    game2Buttons.style.visibility = HIDDEN
+    visibleSymbols(game2CheckFail)
+    hiddenSymbols(game2Buttons)
     game2Wrong++
   }
   setTimeout(() => {
-    game2CheckTrue.style.display = NONE
-    game2CheckFail.style.display = NONE
-    game2Buttons.style.visibility = VISIBLE
+    hiddenSymbols(game2CheckTrue)
+    hiddenSymbols(game2CheckFail)
+    visibleSymbols(game2Buttons)
     game2RandomNumber()
   }, delayCheckTime * 1000)
 }
@@ -400,36 +413,36 @@ function game2RandomNumber() {
  */
 function duplicateClickHandler() {
   if (game3Result) {
-    game3CheckTrue.style.display = FLEX
-    game3Buttons.style.visibility = HIDDEN
+    visibleSymbols(game3CheckTrue)
+    hiddenSymbols(game3Buttons)
     game3Correct++
   } else {
-    game3CheckFail.style.display = FLEX
-    game3Buttons.style.visibility = HIDDEN
+    visibleSymbols(game3CheckFail)
+    hiddenSymbols(game3Buttons)
     game3Wrong++
   }
   setTimeout(() => {
-    game3CheckTrue.style.display = NONE
-    game3CheckFail.style.display = NONE
-    game3Buttons.style.visibility = VISIBLE
+    hiddenSymbols(game3CheckTrue)
+    hiddenSymbols(game3CheckFail)
+    visibleSymbols(game3Buttons)
     game3RandomNumber()
   }, delayCheckTime * 1000)
 }
 
 function noDuplicateClickHandler() {
   if (!game3Result) {
-    game3CheckTrue.style.display = FLEX
-    game3Buttons.style.visibility = HIDDEN
+    visibleSymbols(game3CheckTrue)
+    hiddenSymbols(game3Buttons)
     game3Correct++
   } else {
-    game3CheckFail.style.display = FLEX
-    game3Buttons.style.visibility = HIDDEN
+    visibleSymbols(game3CheckFail)
+    hiddenSymbols(game3Buttons)
     game3Wrong++
   }
   setTimeout(() => {
-    game3CheckTrue.style.display = NONE
-    game3CheckFail.style.display = NONE
-    game3Buttons.style.visibility = VISIBLE
+    hiddenSymbols(game3CheckTrue)
+    hiddenSymbols(game3CheckFail)
+    visibleSymbols(game3Buttons)
     game3RandomNumber()
   }, delayCheckTime * 1000)
 }

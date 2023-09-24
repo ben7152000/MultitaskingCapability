@@ -254,17 +254,20 @@ img {
 #game-1-check-true, #game-1-check-fail {
     position: absolute;
     bottom: -50px;
+    visibility: hidden;
 }
 
 #game-2-check-true, #game-2-check-fail {
     position: absolute;
     top: 50px;
     right: 75px;
+    visibility: hidden;
 }
 
 #game-3-check-true, #game-3-check-fail {
     position: absolute;
     bottom: -20px;
+    visibility: hidden;
 }
 
 .check {
@@ -273,7 +276,7 @@ img {
     border-radius: 50%;
     justify-content: center;
     align-items: center;
-    display: none;
+    display: flex;
 }
 
 .check span {
