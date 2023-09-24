@@ -215,9 +215,17 @@ img {
     margin-bottom: 30px;
 }
 
-.symbol {
+.symbols {
+    position: relative;
     width: 40px;
     height: 40px;
+}
+
+.symbol {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    visibility: hidden;
 }
 
 .game-2, .game-3 {
