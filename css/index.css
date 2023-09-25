@@ -223,6 +223,7 @@ img {
 
 .symbol {
     position: absolute;
+    top: 0;
     width: 40px;
     height: 40px;
     visibility: hidden;
