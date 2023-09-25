@@ -310,13 +310,6 @@ const gameTime = 5 // 分鐘
 const game1Time = 10 // 秒
 const delayCheckTime = 2 // 秒
 let randomInterval // 隨機倒數定時器
-const imgSymbol1 = document.createElement("img")
-const imgSymbol2 = document.createElement("img")
-const imgSymbol3 = document.createElement("img")
-const imgSymbol4 = document.createElement("img")
-const imgSymbol5 = document.createElement("img")
-const imgSymbol6 = document.createElement("img")
-const imgSymbol7 = document.createElement("img")
 
 /**
  * 監聽
@@ -531,6 +524,37 @@ function showSymbol(symbolType, symbols) {
 }
 
 /**
+ * 判斷圖形顯示指定圖片
+ */
+function showAssignSymbol(symbolType, symbols ,symbolSrc) {
+  switch (symbolType) {
+    case SYMBOL1:
+      showSymbol(symbolSrc, symbols[0])
+      break
+    case SYMBOL2:
+      showSymbol(symbolSrc, symbols[1])
+      break
+    case SYMBOL3:
+      showSymbol(symbolSrc, symbols[2])
+      break
+    case SYMBOL4:
+      showSymbol(symbolSrc, symbols[3])
+      break
+    case SYMBOL5:
+      showSymbol(symbolSrc, symbols[4])
+      break
+    case SYMBOL6:
+      showSymbol(symbolSrc, symbols[5])
+      break
+    case SYMBOL7:
+      showSymbol(symbolSrc, symbols[6])
+      break
+    default:
+      break;
+  }
+}
+
+/**
  *  Game 1
  */
 function game1StartCountdown(duration) {
@@ -614,7 +638,6 @@ function arrowRightClickHandler() {
 }
 
 function game1RandomSymbols() {
-  const randomSymbolIndex = [symbol1, symbol2, symbol3, symbol4, symbol5, symbol6, symbol7]
   const symbol1Items = [symbol1Left, symbol1Right, symbol1Triangle, symbol1Cross, symbol1Square, symbol1Semicircle, symbol1Diamond, symbol1Diamond1, symbol1Star, symbol1Star1, symbol1Star2, symbol1Circle, symbol1Circle1, symbol1Circle2, symbol1Circle3, symbol1Polygon1, symbol1Polygon2, symbol1Polygon3, symbol1Polygon4, symbol1Polygon5, symbol1Polygon6, symbol1Polygon7, symbol1Polygon8, symbol1Polygon9, symbol1Polygon10, symbol1Polygon11, symbol1Polygon12, symbol1Polygon13]
   const symbol2Items = [symbol2Left, symbol2Right, symbol2Triangle, symbol2Cross, symbol2Square, symbol2Semicircle, symbol2Diamond, symbol2Diamond1, symbol2Star, symbol2Star1, symbol2Star2, symbol2Circle, symbol2Circle1, symbol2Circle2, symbol2Circle3, symbol2Polygon1, symbol2Polygon2, symbol2Polygon3, symbol2Polygon4, symbol2Polygon5, symbol2Polygon6, symbol2Polygon7, symbol2Polygon8, symbol2Polygon9, symbol2Polygon10, symbol2Polygon11, symbol2Polygon12, symbol2Polygon13]
   const symbol3Items = [symbol3Left, symbol3Right, symbol3Triangle, symbol3Cross, symbol3Square, symbol3Semicircle, symbol3Diamond, symbol3Diamond1, symbol3Star, symbol3Star1, symbol3Star2, symbol3Circle, symbol3Circle1, symbol3Circle2, symbol3Circle3, symbol3Polygon1, symbol3Polygon2, symbol3Polygon3, symbol3Polygon4, symbol3Polygon5, symbol3Polygon6, symbol3Polygon7, symbol3Polygon8, symbol3Polygon9, symbol3Polygon10, symbol3Polygon11, symbol3Polygon12, symbol3Polygon13]
@@ -622,15 +645,8 @@ function game1RandomSymbols() {
   const symbol5Items = [symbol5Left, symbol5Right, symbol5Triangle, symbol5Cross, symbol5Square, symbol5Semicircle, symbol5Diamond, symbol5Diamond1, symbol5Star, symbol5Star1, symbol5Star2, symbol5Circle, symbol5Circle1, symbol5Circle2, symbol5Circle3, symbol5Polygon1, symbol5Polygon2, symbol5Polygon3, symbol5Polygon4, symbol5Polygon5, symbol5Polygon6, symbol5Polygon7, symbol5Polygon8, symbol5Polygon9, symbol5Polygon10, symbol5Polygon11, symbol5Polygon12, symbol5Polygon13]
   const symbol6Items = [symbol6Left, symbol6Right, symbol6Triangle, symbol6Cross, symbol6Square, symbol6Semicircle, symbol6Diamond, symbol6Diamond1, symbol6Star, symbol6Star1, symbol6Star2, symbol6Circle, symbol6Circle1, symbol6Circle2, symbol6Circle3, symbol6Polygon1, symbol6Polygon2, symbol6Polygon3, symbol6Polygon4, symbol6Polygon5, symbol6Polygon6, symbol6Polygon7, symbol6Polygon8, symbol6Polygon9, symbol6Polygon10, symbol6Polygon11, symbol6Polygon12, symbol6Polygon13]
   const symbol7Items = [symbol7Left, symbol7Right, symbol7Triangle, symbol7Cross, symbol7Square, symbol7Semicircle, symbol7Diamond, symbol7Diamond1, symbol7Star, symbol7Star1, symbol7Star2, symbol7Circle, symbol7Circle1, symbol7Circle2, symbol7Circle3, symbol7Polygon1, symbol7Polygon2, symbol7Polygon3, symbol7Polygon4, symbol7Polygon5, symbol7Polygon6, symbol7Polygon7, symbol7Polygon8, symbol7Polygon9, symbol7Polygon10, symbol7Polygon11, symbol7Polygon12, symbol7Polygon13]
-  // hideAllSymbols(symbol1Items)
-  // hideAllSymbols(symbol2Items)
-  // hideAllSymbols(symbol3Items)
-  // hideAllSymbols(symbol4Items)
-  // hideAllSymbols(symbol5Items)
-  // hideAllSymbols(symbol6Items)
-  // hideAllSymbols(symbol7Items)
-  game1Result = ''
-  game1StartCountdown(game1Time)
+  const symbolItems = [symbol1Items, symbol2Items, symbol3Items, symbol4Items, symbol5Items, symbol6Items, symbol7Items]
+  const randomSymbolIndex = [symbol1, symbol2, symbol3, symbol4, symbol5, symbol6, symbol7]
   const symbol1Src = arrowSymbols[randomSymbol(arrowSymbols)]
   const symbol2Src = symbols[randomSymbol(symbols)]
   const symbol3Src = symbols[randomSymbol(symbols)]
@@ -638,182 +654,16 @@ function game1RandomSymbols() {
   const symbol5Src = symbols[randomSymbol(symbols)]
   const symbol6Src = symbols[randomSymbol(symbols)]
   const symbol7Src = symbols[randomSymbol(symbols)]
+  const symbolSrc = [symbol1Src, symbol2Src, symbol3Src, symbol4Src, symbol5Src, symbol6Src, symbol7Src]
+  symbolItems.forEach(i => hideAllSymbols(i))
+  game1Result = ''
+  game1StartCountdown(game1Time)
   game1Result = symbol1Src
-  imgSymbol1.src = `./assets/${symbol1Src}.png`
-  imgSymbol2.src = `./assets/${symbol2Src}.png`
-  imgSymbol3.src = `./assets/${symbol3Src}.png`
-  imgSymbol4.src = `./assets/${symbol4Src}.png`
-  imgSymbol5.src = `./assets/${symbol5Src}.png`
-  imgSymbol6.src = `./assets/${symbol6Src}.png`
-  imgSymbol7.src = `./assets/${symbol7Src}.png`
-  const symbolIndex1 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex1].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex1].appendChild(imgSymbol1)
-  randomSymbolIndex.splice(symbolIndex1, 1)
-  const symbolIndex2 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex2].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex2].appendChild(imgSymbol2)
-  randomSymbolIndex.splice(symbolIndex2, 1)
-  const symbolIndex3 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex3].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex3].appendChild(imgSymbol3)
-  randomSymbolIndex.splice(symbolIndex3, 1)
-  const symbolIndex4 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex4].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex4].appendChild(imgSymbol4)
-  randomSymbolIndex.splice(symbolIndex4, 1)
-  const symbolIndex5 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex5].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex5].appendChild(imgSymbol5)
-  randomSymbolIndex.splice(symbolIndex5, 1)
-  const symbolIndex6 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex6].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex6].appendChild(imgSymbol6)
-  randomSymbolIndex.splice(symbolIndex6, 1)
-  const symbolIndex7 = randomSymbol(randomSymbolIndex)
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL1) {
-  //   showSymbol(symbol1Src, symbol1Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL2) {
-  //   showSymbol(symbol2Src, symbol2Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL3) {
-  //   showSymbol(symbol3Src, symbol3Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL4) {
-  //   showSymbol(symbol4Src, symbol4Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL5) {
-  //   showSymbol(symbol5Src, symbol5Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL6) {
-  //   showSymbol(symbol6Src, symbol6Items)
-  // }
-  // if (randomSymbolIndex[symbolIndex7].id === SYMBOL7) {
-  //   showSymbol(symbol7Src, symbol7Items)
-  // }
-  randomSymbolIndex[symbolIndex7].appendChild(imgSymbol7)
-  randomSymbolIndex.splice(symbolIndex7, 1)
+  for (let i = 0; i < 7; i++) {
+    const symbolIndex = randomSymbol(randomSymbolIndex)
+    showAssignSymbol(randomSymbolIndex[symbolIndex].id, symbolItems, symbolSrc[i])
+    randomSymbolIndex.splice(symbolIndex, 1)
+  }
 }
 
 /**
