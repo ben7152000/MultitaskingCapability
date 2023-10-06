@@ -1,0 +1,173 @@
+/* 遊戲資訊 */
+.game-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    background-color: #eeeeee;
+    z-index: 1;
+}
+
+.time-bar {
+    position: absolute;
+    top: 17px;
+    left: 740px;
+}
+
+.time-bar h4 {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.time {
+    margin-right: 8px;
+}
+
+.time-box {
+    width: 180px;
+    height: 20px;
+    background-color: #DB0001;
+}
+
+.timer-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #FF8D01;
+    transition: width 1s linear;
+}
+
+.game-content {
+    width: 860px;
+    height: 400px;
+    display: flex;
+}
+
+.game-left {
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid #999999;
+}
+
+.game-right {
+    width: 100%;
+    height: 100%;
+}
+
+.game-1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-1-time-bar {
+    width: 20px;
+    height: 226px;
+    border: 1px solid #000000;
+}
+
+.game-1-time-box {
+    width: 20px;
+    height: 226px;
+    background-color: #0042A4;
+}
+
+.game-1-timer-bar {
+    width: 20px;
+    height: 100%;
+    background-color: #eeeeee;
+    transition: height 1s linear;
+}
+
+.game-1-images {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.symbols {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.symbol {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    visibility: hidden;
+}
+
+.game-2, .game-3 {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-2 {
+    border-bottom: 2px solid #999999;
+}
+
+.game-number {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.arrow {
+    font-size: 30px;
+}
+
+.button:first-child {
+    margin-right: 40px;
+}
+
+#game-1-check-true, #game-1-check-fail {
+    position: absolute;
+    bottom: -50px;
+    visibility: hidden;
+}
+
+#game-2-check-true, #game-2-check-fail {
+    position: absolute;
+    top: 50px;
+    right: 75px;
+    visibility: hidden;
+}
+
+#game-3-check-true, #game-3-check-fail {
+    position: absolute;
+    bottom: -20px;
+    visibility: hidden;
+}
+
+.check {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.check span {
+    color: #ffffff;
+    font-size: 24px;
+}

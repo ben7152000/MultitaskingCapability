@@ -51,6 +51,10 @@ const start = document.querySelector('.start')
 const restart = document.querySelector('.restart')
 const time = document.querySelector('.time')
 const timerBar = document.querySelector('.timer-bar')
+const loginInfo = document.querySelector('.login-info')
+const login = document.querySelector('.login')
+const account = document.querySelector('#account')
+const password = document.querySelector('#password')
 
 /**
  * Game 1
@@ -310,6 +314,10 @@ const gameTime = 5 // 分鐘
 const game1Time = 10 // 秒
 const delayCheckTime = 2 // 秒
 let randomInterval // 隨機倒數定時器
+const userInfo = {
+  account: 'FTTW',
+  password: 'Afttw4785',
+}
 
 /**
  * 監聽
@@ -322,6 +330,7 @@ correct.addEventListener('click', correctClickHandler)
 wrong.addEventListener('click', wrongClickHandler)
 duplicate.addEventListener('click', duplicateClickHandler)
 noDuplicate.addEventListener('click', noDuplicateClickHandler)
+login.addEventListener('click', loginHandler)
 
 /**
  * 進到介紹介面
@@ -345,6 +354,21 @@ function goToGamePage() {
 function goToResultPage() {
   gameInfo.style.display = NONE
   resultInfo.style.display = FLEX
+}
+
+/**
+ * 登入
+ */
+function loginHandler() {
+  const userAccount = account.value
+  const userPassword = password.value
+
+  if (userAccount === userInfo.account && userPassword === userInfo.password) {
+    goToInstructionPage()
+    loginInfo.style.display = NONE
+  } else {
+    alert('帳號或密碼錯誤')
+  }
 }
 
 /**
