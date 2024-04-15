@@ -42,6 +42,14 @@ const SYMBOL6 = 'symbol-6'
 const SYMBOL7 = 'symbol-7'
 
 /**
+ * API
+ */
+const url = 'https://sheets.googleapis.com/v4/spreadsheets'
+const id = '1UbzldKDnnwwWcyYbx-7i10nr-rx_bJMFzSzASHUp3YU'
+const sheet = 'Account'
+const key = 'AIzaSyCRhiUOa03yd0PobVYEnm5Ch0yXjFh9hww'
+
+/**
  * Dom
  */
 const mainInfo = document.querySelector('.main-info')
@@ -314,10 +322,7 @@ const gameTime = 5 // 分鐘
 const game1Time = 10 // 秒
 const delayCheckTime = 2 // 秒
 let randomInterval // 隨機倒數定時器
-const userInfo = {
-  account: 'FTTW',
-  password: 'Afttw4785',
-}
+const userInfo = { account: '', password: '' }
 
 /**
  * 監聽
@@ -844,3 +849,12 @@ function startCountdown(duration) {
   const interval = setInterval(updateCountdown, 1000)
 }
 
+/**
+ *  API
+ */
+fetch(`${url}/${id}/values/${sheet}?alt=json&key=${key}`)
+  .then(res => res.json())
+  .then(res => {
+    userInfo.account = res.values[1][1]
+    userInfo.password = res.values[1][2]
+  })
