@@ -731,7 +731,7 @@ function wrongClickHandler() {
 }
 
 function game2RandomNumber() {
-  const range = [0, 0, 1, -1, 2, -2, 3, -3]
+  const range = [0, 0, 0, 0, 0, 0, 1, -1]
   const number1 = game2Numbers[randomSymbol(game2Numbers)]
   let number2 = game2Numbers[randomSymbol(game2Numbers)]
   let number3 = game2Numbers[randomSymbol(game2Numbers)]
